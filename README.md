@@ -1,3 +1,3 @@
-# image_encryptor
+#image_encryptor
 
 🕺 :)
