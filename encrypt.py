@@ -15,7 +15,7 @@ def convert_message(message):
 
 
 #open image  
-Input_Image = Image.open("./images/test_image.jpg")
+Input_Image = Image.open("./images/sol.png")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
@@ -25,14 +25,15 @@ height, width = Input_Image.size
 
 def encrypt(pixel_matrix, height, width, input_image, message):
     letter = 0
-    for y in range(height+1):
-        for x in range(width+1):
+    letter_count = 0
+    for y in range(height):
+        for x in range(width):
             
             #declare an array of placeholders to hold the values of the changed pixel values
-            new_pixels = [[0,0,0],[0,0,0],[0,0,0]]
+            new_pixels = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 
             #select first three pixels
-            if (x+2) < width: #To make sure we don't go outside the array
+            if (x+2) <= (width-1): #To make sure we don't go outside the array
                 pixel1 = pixel_matrix[x,y]
                 pixel2 = pixel_matrix[(x+1),y]
                 pixel3 = pixel_matrix[(x+2),y]
@@ -43,8 +44,12 @@ def encrypt(pixel_matrix, height, width, input_image, message):
 
                 for pixel_index, pixel in enumerate(arr):
                     for rgb_index, rgb in enumerate(pixel):
-                        #check if number should be even
-                        if message[letter][rgb_index] == 0:
+                        
+                        print(f"pixel:{pixel}, rgb:{rgb}")
+
+                        #check if number should be even   
+                        print(f"letter_count:{letter_count}")   
+                        if message[letter][letter_count] == 0:
                             if pixel != 2 & rgb != 2: 
                                 #make rgb value even
                                 if rgb%2 != 0:
@@ -54,8 +59,11 @@ def encrypt(pixel_matrix, height, width, input_image, message):
                                 if rgb%2 == 0:
                                     rgb = rgb + 1
                         #after rgb value is changed, assign the new value to a new array with placeholders
-                        new_pixels[pixel_index][rgb_index] = pixel
+                        print(pixel_index, rgb_index)
 
+                        new_pixels[pixel_index][rgb_index] = rgb
+                        letter_count += 1
+            letter_count = 0
 
 
 

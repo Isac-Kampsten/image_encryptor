@@ -1,3 +1,4 @@
-for i in range(5+1):
-    for j in range(5+1):
-        print(f"{i},{j}")
+arr = [134, 50, 255]
+
+for pixel_index, pixel in enumerate(arr):
+    print(pixel_index)
