@@ -10,7 +10,7 @@ msg = "Rolle"
 def convert_message(message):
     arr = []
     for i in message:
-        arr.append((format(ord(f"{i}"), '8b')))
+        arr.append((format(ord(f"{i}"), '08b')))
     return arr
 
 
