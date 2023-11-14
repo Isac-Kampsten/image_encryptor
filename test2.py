@@ -1,4 +1,3 @@
-arr = [134, 50, 255]
+mytuple = (123,321,213)
 
-for pixel_index, pixel in enumerate(arr):
-    print(pixel_index)
+mytuple[0] += 1
