@@ -25,6 +25,7 @@ height, width = Input_Image.size
 pixels_needed = len(message) * 3
 
 
+
 #Choose amount of pixels needed from the image and put them in an array
 
 count = 0
@@ -39,30 +40,4 @@ for y in range(height):
 
 
 #loop through chosen pixels and change first three pixels according to letter
-
-new_pixels = []
-letter_count = 0
-
-for index, pixel in enumerate(chosen_pixels):
-    if index <= pixels_needed-3:
-        pixel1, pixel2, pixel3 = chosen_pixels[index], chosen_pixels[index+1], chosen_pixels[index+2]
-        setOfPixels = [pixel1,pixel2,pixel3]
-
-        for binary_letter_index, binary_number in enumerate(stringToBinary(message)[letter_count]):
-            if binary_letter_index <= 2:
-                #change values of first pixel
-                if binary_number == 0:
-                    #make pixel value even
-                    if setOfPixels[0][binary_letter_index]%2 != 0:
-                        setOfPixels[0][binary_letter_index] -= 1
-                else:
-                    #binary number is a 1 and we want to make pixel value uneven
-                    if setOfPixels[0][binary_letter_index]%2 == 0:
-                        setOfPixels[0][binary_letter_index] -= 1
-                    
-                        
-                
- 
-                    
-                        
 
