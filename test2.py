@@ -1,13 +1,7 @@
-mytuple = (123,321,213)
+def stringToBinary(message):
+    string = ""
+    for i in message:
+        string += (format(ord(f"{i}"), '08b'))
+    return string
 
-arr = []
 
-for i in mytuple:
-    arr.append(i)
-
-
-print(arr)
-
-arr[0] += 1
-
-print (arr)
