@@ -1,0 +1,23 @@
+        #check if the current bit in the binary message is a 0 or a 1
+
+        if binary_message[message_index] == "0":
+            #make the current rgb value even
+
+            #check if rgb value already is even, if it is do nothing else check if it is 255 or 0, then choose wheter to subract one or add one
+
+            if rgb_values[rgb_index] % 2 == 0:
+                rgb_values[rgb_index] = rgb_values[rgb_index]
+                
+            else:
+                rgb_values[rgb_index] = (rgb_values[rgb_index] - 1)
+                
+
+        if binary_message[message_index] == "1":
+            #make the current rgb value odd
+
+            #check if rgb value already is odd, if it is do nothing, else add 1
+            if rgb_values[rgb_index] % 2 == 1:
+                rgb_values[rgb_index] = rgb_values[rgb_index]
+                
+            else:
+                rgb_values[rgb_index] = (rgb_values[rgb_index] + 1)

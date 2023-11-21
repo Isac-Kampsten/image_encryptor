@@ -65,17 +65,46 @@ for i in range(0, len(chosen_pixels), 3):
 
     print(set_of_pixels)
 
+
     rgb_values = [r1, g1, b1, r2, g2, b2, r3, g3, b3]
 
     #modify every value accordingly except the last blue value, since it will be used to determine if the message continues or not
     
     for rgb_index in range(0,8):
+
+        #check if the current bit in the binary message is a 0 or a 1
+
         if binary_message[message_index] == "0":
-            rgb_values[rgb_index] = rgb_values[rgb_index]
-            message_index += 1
-        else:
-            rgb_values[rgb_index] +- 1
-            message_index += 1
+            #make the current rgb value even
+
+            #check if rgb value already is even, if it is do nothing else check if it is 255 or 0, then choose wheter to subract one or add one
+
+            if rgb_values[rgb_index] % 2 == 0:
+                rgb_values[rgb_index] = rgb_values[rgb_index]
+                
+            else:
+                rgb_values[rgb_index] = (rgb_values[rgb_index] - 1)
+                
+
+        if binary_message[message_index] == "1":
+            #make the current rgb value odd
+
+            #check if rgb value already is odd, if it is do nothing, else add 1
+            if rgb_values[rgb_index] % 2 == 1:
+                rgb_values[rgb_index] = rgb_values[rgb_index]
+                
+            else:
+                rgb_values[rgb_index] = (rgb_values[rgb_index] + 1)
+        message_index += 1
+    
+    #Now change last blue value if message are to continue or not
+    if message_index == 40:
+         
+
+        
+
+        
+
 
         
     
