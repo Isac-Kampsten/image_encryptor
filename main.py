@@ -2,7 +2,7 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = "banan"
+message = "hej"
 
 #Create function that converts a string to binary equivalent
 
@@ -13,7 +13,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/sol.png")
+Input_Image = Image.open("./images/testbild_ga.png")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
@@ -39,10 +39,10 @@ for y in range(height):
         
 
 
-# Print the original pixels for debugging
-#print("Original Pixels:")
-#for pixel in chosen_pixels:
-   # print(pixel)
+#Print the original pixels for debugging
+print("Original Pixels:")
+for pixel in chosen_pixels:
+    print(pixel)
 
 # Loop through chosen pixels in sets of three and modify the RGB values
 binary_message = stringToBinary(message)
@@ -63,7 +63,6 @@ for i in range(0, len(chosen_pixels), 3):
     g1, g2, g3 = set_of_pixels[0][1], set_of_pixels[1][1], set_of_pixels[2][1]
     b1, b2, b3 = set_of_pixels[0][2], set_of_pixels[1][2], set_of_pixels[2][2]
 
-    print(set_of_pixels)
 
 
     rgb_values = [r1, g1, b1, r2, g2, b2, r3, g3, b3]
@@ -97,8 +96,41 @@ for i in range(0, len(chosen_pixels), 3):
                 rgb_values[rgb_index] = (rgb_values[rgb_index] + 1)
         message_index += 1
     
-    #Now change last blue value if message are to continue or not
-    if message_index == 40:
+    #check if we're on the last charachter in the message, if so, make the value odd, else make it even
+
+    if message_index == len(binary_message):
+        #make b3 odd 
+        
+        #if it's already odd do nothing
+
+        if rgb_values[8] % 2 == 1:
+            rgb_values[8] = rgb_values[8]
+        else:
+            rgb_values[8] = (rgb_values[8] + 1)
+    else:
+
+        #make b3 even
+
+        #check if b3 already is even
+
+        if rgb_values[8] % 2 == 0: 
+            rgb_values[8] = rgb_values[8]
+        else:
+            rgb_values[8] = (rgb_values[8] - 1)
+
+    #append modified rgb_values to new_pixels array
+    new_pixels.append((rgb_values[0],rgb_values[1],rgb_values[2],255))
+    new_pixels.append((rgb_values[3],rgb_values[4],rgb_values[5],255))
+    new_pixels.append((rgb_values[6],rgb_values[7],rgb_values[8],255))
+
+
+
+    
+#print new_pixels after modification
+
+print("new_pixels:")
+for i in new_pixels:
+    print(i)
          
 
         
