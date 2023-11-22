@@ -2,7 +2,7 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = "banan"
+message = "Haralds Takläggning AB"
 
 #Create function that converts a string to binary equivalent
 
@@ -13,7 +13,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/test_image.jpg")
+Input_Image = Image.open("./images/svartvitjakob.PNG")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
