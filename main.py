@@ -132,6 +132,7 @@ print("new_pixels:")
 for i in new_pixels:
     print(i)
          
+print(len())
 
         
 
