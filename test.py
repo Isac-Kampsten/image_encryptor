@@ -13,7 +13,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/test_image.jpg")
+Input_Image = Image.open("./images/testbild_ga.png")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
@@ -82,7 +82,7 @@ for i in range(0, len(chosen_pixels), 3):
                 rgb_values[rgb_index] = rgb_values[rgb_index]
                 
             else:
-                rgb_values[rgb_index] = (rgb_values[rgb_index] - 1)
+                rgb_values[rgb_index] = (rgb_values[rgb_index] - 75)
                 
 
         if binary_message[message_index] == "1":
@@ -93,7 +93,7 @@ for i in range(0, len(chosen_pixels), 3):
                 rgb_values[rgb_index] = rgb_values[rgb_index]
                 
             else:
-                rgb_values[rgb_index] = (rgb_values[rgb_index] + 1)
+                rgb_values[rgb_index] = (rgb_values[rgb_index] + 75)
         message_index += 1
     
     #check if we're on the last charachter in the message, if so, make the value odd, else make it even
@@ -106,7 +106,7 @@ for i in range(0, len(chosen_pixels), 3):
         if rgb_values[8] % 2 == 1:
             rgb_values[8] = rgb_values[8]
         else:
-            rgb_values[8] = (rgb_values[8] + 1)
+            rgb_values[8] = (rgb_values[8] + 75)
     else:
 
         #make b3 even
@@ -116,7 +116,7 @@ for i in range(0, len(chosen_pixels), 3):
         if rgb_values[8] % 2 == 0: 
             rgb_values[8] = rgb_values[8]
         else:
-            rgb_values[8] = (rgb_values[8] - 1)
+            rgb_values[8] = (rgb_values[8] - 75)
 
     #append modified rgb_values to new_pixels array
     new_pixels.append((rgb_values[0],rgb_values[1],rgb_values[2],255))
@@ -140,4 +140,4 @@ for y in range(height):
             pixel_matrix[x,y] = new_pixels[inserted_pixels_index]
             inserted_pixels_index += 1
 
-Input_Image.save("encrypted_image.png", format="png")
+
