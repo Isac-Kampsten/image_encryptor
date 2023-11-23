@@ -2,7 +2,7 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = "Haralds Takläggning AB"
+message = "heja"
 
 #Create function that converts a string to binary equivalent
 
