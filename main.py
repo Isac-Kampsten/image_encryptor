@@ -2,7 +2,7 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = ""
+message = "rolle"
 
 #Create function that converts a string to binary equivalent
 
@@ -13,7 +13,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/svartvitjakob.PNG")
+Input_Image = Image.open("./images/test_image.jpg")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
@@ -40,9 +40,9 @@ for y in range(height):
 
 
 #Print the original pixels for debugging
-print("Original Pixels:")
-for pixel in chosen_pixels:
-    print(pixel)
+#print("Original Pixels:")
+#for pixel in chosen_pixels:
+    #print(pixel)
 
 # Loop through chosen pixels in sets of three and modify the RGB values
 binary_message = stringToBinary(message)
@@ -128,9 +128,9 @@ for i in range(0, len(chosen_pixels), 3):
     
 #print new_pixels after modification
 
-print("new_pixels:")
-for i in new_pixels:
-    print(i)
+#print("new_pixels:")
+#for i in new_pixels:
+    #print(i)
          
 inserted_pixels_index = 0
 
