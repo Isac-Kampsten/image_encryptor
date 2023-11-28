@@ -2,7 +2,7 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = "rolle"
+message = "fortnite battlepass"
 
 #Create function that converts a string to binary equivalent
 
@@ -13,13 +13,13 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/test_image.jpg")
+Input_Image = Image.open("./images/nån_fågel.jpg")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
 
 #getting image height and width
-height, width = Input_Image.size
+width, height = Input_Image.size
 
 #calculate amount of pixels needed
 pixels_needed = len(message) * 3
@@ -141,3 +141,5 @@ for y in range(height):
             inserted_pixels_index += 1
 
 Input_Image.save("encrypted_image.png", format="png")
+
+print(width, height)
