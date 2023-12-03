@@ -2,7 +2,9 @@
 from PIL import Image
 
 #Choose a message that are to be encoded into the image
-message = """https://yt3.googleusercontent.com/E1QTkQiNfFMIAx4BLHAz_GTANZAHoSYOqjAhVd1QkOPbGErUOYa_nNUaJRzVrw6JDR4g8kh3kjQ=s900-c-k-c0x00ffffff-no-rj älskar honom <3"""
+
+m = open("message.txt", "r")
+message = m.read()
 
 #Create function that converts a string to binary equivalent
 
@@ -13,7 +15,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/sam_sulek_smiling_with_shake.jpg")
+Input_Image = Image.open("./images/nån_fågel.jpg")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
