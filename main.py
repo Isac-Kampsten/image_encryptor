@@ -15,7 +15,7 @@ def stringToBinary(message):
     return string
 
 #open image  
-Input_Image = Image.open("./images/nån_fågel.jpg")
+Input_Image = Image.open("./images/kevin_levrone.png")
 
 #get pixel matrix from image
 pixel_matrix = Input_Image.load()
